@@ -32,32 +32,43 @@ echo $OUTPUT->doctype() ?>
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
 <div id="page">
-<?php if ($hasheading || $hasnavbar) { ?>
-    <div id="page-header">
-        <div id="page-header-wrapper" class="wrapper clearfix">
-	    <h1 class="headermain"><?php echo $PAGE->heading ?></h1>
-            <?php if ($hasheading) { ?>
-	        <div id="profileblock">
-		    <?php
-			include('profileblock.php');
-		    ?>
-		</div>
-            <?php } ?>
-        </div>
-    </div>
-
+<!-- START OF TOP BAR-->
 <?php if ($hascustommenu) { ?>
-<div id="custommenuwrap"><div id="custommenu"><?php echo $custommenu; ?></div></div>
+<div class="clearfix" id="top">
+	<div id="custommenu">
+		<?php echo $custommenu; ?>
+	</div>
+	<?php if ($hasheading) { ?>
+	<div id="profileblock">
+		<?php
+			include('profileblock.php');
+		?>
+	</div>
+	<?php } ?>
+</div>
 <?php } ?>
+<?php if ($hasheading || $hasnavbar) { ?>
+<div id="page-header">
+		<div id="page-header-wrapper" class="wrapper clearfix">
+		<div class="headermain"><img src="<?php echo $OUTPUT->pix_url('logo', 'theme');?>" alt="CollegeNET" /></div>
+		<div id="search-container">
+			<form id="search-panel" action="http://google.co.nz/search" method="get" target="_self">
+			<label class="acchide" for="id-search-term">Search on Google.</label>
+			<input name="q" autocomplete="off" placeholder="Search Google" id="id-search-term" type="text"/>
+			<button id="search-button" class="button" type="submit"> Search </button>
+			</form>
+		</div>
+		</div>
+</div>
 
-        <?php if ($hasnavbar) { ?>
-            <div class="navbar">
-                <div class="wrapper clearfix">
-                    <div class="breadcrumb"><?php echo $OUTPUT->navbar(); ?></div>
-                    <div class="navbutton"> <?php echo $PAGE->button; ?></div>
-                </div>
-            </div>
-        <?php } ?>
+<?php if ($hasnavbar) { ?>
+<div class="navbar">
+	<div class="wrapper clearfix">
+		<div class="breadcrumb"><?php echo $OUTPUT->navbar(); ?></div>
+		<div class="navbutton"> <?php echo $PAGE->button; ?></div>
+	</div>
+</div>
+<?php } ?>
 
 <?php } ?>
 <!-- END OF HEADER -->

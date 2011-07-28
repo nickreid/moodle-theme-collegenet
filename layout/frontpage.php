@@ -38,25 +38,35 @@ echo $OUTPUT->doctype() ?>
 
 <div id="page">
 <!-- START OF TOP BAR-->
-    <div id="top">
-    </div>
-<!-- START OF HEADER -->
-    <div id="page-header">
-		<div id="page-header-wrapper" class="wrapper clearfix">
-	        <h1 class="headermain"><?php echo $PAGE->heading ?></h1>
-	        <div id="profileblock">
-		    <?php
+<?php if ($hascustommenu) { ?>
+<div class="clearfix" id="top">
+	<div id="custommenu">
+		<?php echo $custommenu; ?>
+	</div>
+	<?php if ($hasheading) { ?>
+	<div id="profileblock">
+		<?php
 			include('profileblock.php');
-		    ?>
+		?>
+	</div>
+	<?php } ?>
+</div>
+<?php } ?>
+<!-- START OF HEADER -->
+<div id="page-header">
+	    <div id="page-header-wrapper" class="wrapper clearfix">
+		<div class="headermain"><img src="<?php echo $OUTPUT->pix_url('logo', 'theme');?>" alt="CollegeNET" /></div>
+		<div id="search-container">
+		    <form id="search-panel" action="http://google.co.nz/search" method="get" target="_self">
+			<label class="acchide" for="id-search-term">Search on Google.</label>
+			<input name="q" autocomplete="off" autofocus="true" placeholder="Search Google" id="id-search-term" type="text"/>
+			<button id="search-button" class="button" type="submit"> Search </button>
+		    </form>
 		</div>
 	    </div>
-    </div>
+</div>
 
 <!-- END OF HEADER -->
-
-<?php if ($hascustommenu) { ?>
-<div id="custommenuwrap"><div id="custommenu"><?php echo $custommenu; ?></div></div>
-<?php } ?>
 
 <!-- START OF CONTENT -->
 <div id="main">

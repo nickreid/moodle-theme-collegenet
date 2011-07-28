@@ -179,7 +179,7 @@ $THEME->layouts = array(
 // delivered.
 ////////////////////////////////////////////////////
 
-// $THEME->javascripts
+ $THEME->javascripts_footer = array('jquery-1.6.2.min','scripts.js');
 
 ////////////////////////////////////////////////////
 // An array containing the names of JavaScript files
